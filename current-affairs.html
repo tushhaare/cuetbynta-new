@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Current Affairs | CUETbyNTA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Follow day-wise current affairs updates relevant to CUET preparation, with links to original sources.">
+<link rel="icon" href="/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+/* =========================================================
+   CUETbyNTA CURRENT AFFAIRS — PAGE-SCOPED UI
+   ========================================================= */
+.cuet-ca-page{--ca-blue:#1769e0;--ca-blue-dark:#0b3f8f;--ca-navy:#102a43;--ca-text:#19324d;--ca-muted:#66788a;--ca-line:#e5ebf2;--ca-soft:#f5f8fc;--ca-white:#fff;font-family:Inter,sans-serif;color:var(--ca-text);background:#fff}
+.cuet-ca-page *{box-sizing:border-box}.cuet-ca-wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+.cuet-ca-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#eef6ff 0%,#f9fbff 58%,#fff 100%);border-bottom:1px solid var(--ca-line);padding:62px 0 54px}
+.cuet-ca-hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-150px;top:-240px;background:rgba(23,105,224,.10);pointer-events:none}.cuet-ca-hero:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:150px;bottom:-120px;background:rgba(23,105,224,.055);pointer-events:none}
+.cuet-ca-breadcrumb{font-size:13px;color:#728197;margin-bottom:18px}.cuet-ca-breadcrumb a{color:inherit;text-decoration:none}.cuet-ca-breadcrumb a:hover{color:var(--ca-blue)}
+.cuet-ca-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:end;position:relative;z-index:1}.cuet-ca-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid #cfe0f7;border-radius:999px;background:#fff;color:var(--ca-blue-dark);font-size:12px;font-weight:800;letter-spacing:.06em}
+.cuet-ca-title{margin:14px 0 8px;font-family:'Baloo 2',sans-serif;font-size:clamp(40px,5vw,62px);line-height:1;letter-spacing:-.025em;color:#102a43}.cuet-ca-subtitle{max-width:680px;margin:0;color:#61748a;font-size:16px;line-height:1.65}
+.cuet-ca-livebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;font-size:12px;color:#68798d;font-weight:600}.cuet-ca-live{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid #cfe8da;border-radius:999px;background:#f7fcf9;color:#217447}.cuet-ca-live-dot{width:7px;height:7px;border-radius:50%;background:#2e9b61;box-shadow:0 0 0 4px rgba(46,155,97,.12)}
+.cuet-ca-hero-stat{background:rgba(255,255,255,.78);border:1px solid #dbe7f5;border-radius:18px;padding:20px 20px 18px;box-shadow:0 8px 30px rgba(28,65,110,.06)}.cuet-ca-hero-stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#75869b}.cuet-ca-hero-stat-number{font-family:'Baloo 2',sans-serif;font-size:40px;line-height:1;margin:5px 0;color:var(--ca-blue-dark)}.cuet-ca-hero-stat-note{font-size:12px;color:#75869b;line-height:1.5}
+.cuet-ca-content{padding:28px 0 80px;background:#fff}.cuet-ca-toolbar{position:sticky;top:0;z-index:20;margin-bottom:28px;padding:12px 0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--ca-line)}.cuet-ca-toolbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}.cuet-ca-filters{display:flex;gap:7px;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none}.cuet-ca-filters::-webkit-scrollbar{display:none}.cuet-ca-filter{border:1px solid #dce4ed;background:#fff;color:#56677a;border-radius:999px;padding:8px 13px;font:600 12px Inter,sans-serif;white-space:nowrap;cursor:pointer;transition:.18s ease}.cuet-ca-filter:hover{border-color:#a9c9f5;color:var(--ca-blue)}.cuet-ca-filter.is-active{background:var(--ca-blue);border-color:var(--ca-blue);color:#fff;box-shadow:0 4px 12px rgba(23,105,224,.18)}
+.cuet-ca-status{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:0 0 25px;color:#7a8999;font-size:12px}.cuet-ca-status strong{color:#30465e}.cuet-ca-status-live{display:inline-flex;align-items:center;gap:6px}.cuet-ca-status-dot{width:6px;height:6px;border-radius:50%;background:#2e9b61}.cuet-ca-day{margin-bottom:42px}.cuet-ca-day-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:11px}.cuet-ca-day-heading{display:flex;align-items:center;gap:10px}.cuet-ca-day-title{margin:0;font-family:'Baloo 2',sans-serif;font-size:28px;line-height:1.1;color:#17344f}.cuet-ca-today{display:inline-flex;padding:5px 8px;border-radius:999px;background:#eaf3ff;color:var(--ca-blue);font-size:10px;font-weight:800;letter-spacing:.06em}.cuet-ca-day-meta{font-size:11px;font-weight:800;letter-spacing:.08em;color:#8a98a8;text-transform:uppercase}.cuet-ca-list{border-top:1px solid var(--ca-line)}
+.cuet-ca-item{display:grid;grid-template-columns:128px minmax(0,1fr) auto;gap:22px;align-items:center;padding:19px 6px;border-bottom:1px solid var(--ca-line);transition:background .16s ease,transform .16s ease}.cuet-ca-item:hover{background:#f8fbff;transform:translateX(3px)}.cuet-ca-category{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ca-blue)}.cuet-ca-news-title{margin:0;font-family:'Baloo 2',sans-serif;font-size:20px;line-height:1.25;color:#17344f}.cuet-ca-news-title a{color:inherit;text-decoration:none}.cuet-ca-news-title a:hover{color:var(--ca-blue)}.cuet-ca-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px;color:#8996a5;font-size:11px}.cuet-ca-read{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid #dce5ef;border-radius:9px;background:#fff;color:#29445e;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:.16s ease}.cuet-ca-read:hover{border-color:#b9d2f3;background:#eef6ff;color:var(--ca-blue)}
+.cuet-ca-skeleton{height:84px;border-top:1px solid var(--ca-line);position:relative;overflow:hidden;padding:20px 6px}.cuet-ca-skeleton-line{height:12px;background:#edf2f7;border-radius:5px;margin:0 0 12px;width:70%}.cuet-ca-skeleton-line.short{width:32%;margin:0}.cuet-ca-skeleton:after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);animation:cuetCaShimmer 1.2s infinite}@keyframes cuetCaShimmer{100%{transform:translateX(100%)}}
+.cuet-ca-message{padding:38px 20px;border:1px dashed #d7e0ea;border-radius:16px;background:#f7f9fc;text-align:center;color:#69798b}.cuet-ca-message strong{display:block;color:#253e58;font-family:'Baloo 2',sans-serif;font-size:23px;margin-bottom:4px}.cuet-ca-hidden{display:none!important}
+@media(max-width:800px){.cuet-ca-wrap{width:min(100% - 28px,1160px)}.cuet-ca-hero{padding:48px 0 42px}.cuet-ca-hero-grid{grid-template-columns:1fr;gap:24px}.cuet-ca-hero-stat{max-width:320px}.cuet-ca-title{font-size:44px}.cuet-ca-content{padding-top:18px}.cuet-ca-toolbar-inner{display:block}.cuet-ca-status{align-items:flex-start;flex-direction:column;gap:6px}.cuet-ca-day-head{align-items:flex-start;flex-direction:column;gap:5px}.cuet-ca-day-title{font-size:25px}.cuet-ca-item{grid-template-columns:1fr;gap:7px;padding:17px 0}.cuet-ca-item:hover{transform:none}.cuet-ca-read{justify-self:start;margin-top:3px}.cuet-ca-news-title{font-size:19px}}
+@media(max-width:480px){.cuet-ca-title{font-size:39px}.cuet-ca-subtitle{font-size:15px}.cuet-ca-livebar{gap:8px}.cuet-ca-day{margin-bottom:34px}}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/img/logo.png" alt="CUETbyNTA" class="brand-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="brand-fallback"><span class="brand-mark">CU</span><span class="brand-text"><span class="brand-name">CUETbyNTA</span><span class="brand-sub">For CUET Aspirants</span></span></span></a>
+    <nav class="main-nav"><ul><li><a href="/">Home</a></li><li><a href="/resources.html">Resources</a></li><li><a href="/current-affairs.html" class="active">Current Affairs</a></li><li><a href="/#story">About</a></li><li><a href="/#contact">Contact</a></li></ul></nav>
+    <div class="nav-cta"><a href="https://whatsapp.com/channel/0029Va9z74P4tRs1l21nE62F" class="btn btn-whatsapp">Join WhatsApp Channel</a><button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span></button></div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="mobile-nav-top"><span class="brand-name" style="color:var(--sky)">CUETbyNTA</span><button class="mobile-nav-close" aria-label="Close menu">&times;</button></div>
+  <ul><li><a href="/">Home</a></li><li><a href="/resources.html">Resources</a></li><li><a href="/current-affairs.html">Current Affairs</a></li><li><a href="/#story">About</a></li><li><a href="/#contact">Contact</a></li></ul>
+  <a href="https://whatsapp.com/channel/0029Va9z74P4tRs1l21nE62F" class="btn btn-whatsapp">Join WhatsApp Channel</a>
+</div>
+
+<main class="cuet-ca-page">
+<section class="cuet-ca-hero"><div class="cuet-ca-wrap">
+  <div class="cuet-ca-breadcrumb"><a href="/">Home</a> / Current Affairs</div>
+  <div class="cuet-ca-hero-grid">
+    <div>
+      <span class="cuet-ca-pill">📰 CURRENT AFFAIRS</span>
+      <h1 class="cuet-ca-title">Stay updated. Stay exam-ready.</h1>
+      <p class="cuet-ca-subtitle">Important current affairs, organised day-wise so you can quickly catch up on the news that matters for your CUET preparation.</p>
+      <div class="cuet-ca-livebar"><span class="cuet-ca-live"><span class="cuet-ca-live-dot"></span> LIVE UPDATES</span><span id="cuetCaLastUpdated">Checking for updates...</span><span>·</span><span>Refreshes every 15 minutes</span></div>
+    </div>
+    <div class="cuet-ca-hero-stat"><div class="cuet-ca-hero-stat-label">Latest feed</div><div class="cuet-ca-hero-stat-number" id="cuetCaHeroCount">—</div><div class="cuet-ca-hero-stat-note">current-affairs updates available from the latest sheet sync</div></div>
+  </div>
+</div></section>
+
+<section class="cuet-ca-content"><div class="cuet-ca-wrap">
+  <div class="cuet-ca-toolbar"><div class="cuet-ca-toolbar-inner"><div class="cuet-ca-filters" id="cuetCaFilters" role="group" aria-label="Current affairs categories"></div></div></div>
+  <div class="cuet-ca-status"><span class="cuet-ca-status-live"><span class="cuet-ca-status-dot"></span><span id="cuetCaCount"><strong>Loading current affairs...</strong></span></span><span id="cuetCaNextRefresh"></span></div>
+  <div id="cuetCaFeed" aria-live="polite"></div>
+</div></section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <span class="brand-name">CUETbyNTA</span>
+        <span class="brand-sub">For CUET Aspirants</span>
+        <p>A student-focused community helping CUET aspirants navigate preparation, updates, admissions and the journey to university.</p>
+        <p style="font-size:12.5px; color:rgba(234,244,255,0.45); margin-top:10px;">Founded by Tushar</p>
+        <div class="social-row">
+          <a href="https://x.com/cuetbynta" aria-label="Twitter">𝕏</a>
+          <a href="https://www.facebook.com/cuetbynta" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/cuetbynta" aria-label="Instagram">ig</a>
+          <a href="https://www.linkedin.com/company/cuetbynta" aria-label="LinkedIn">in</a>
+          <a href="https://www.youtube.com/@CUETbyNTA" aria-label="YouTube">yt</a>
+          <a href="https://t.me/CUETbyNTA4Students" aria-label="Telegram">t</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h5>Site</h5>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/resources.html">Resources</a></li>
+          <li><a href="/#story">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="/mocktests.html#mocks">Free Mock Tests</a></li>
+    <li><a href="/syllabus.html#subjects">CUET Syllabus</a></li>
+    <li><a href="/current-affairs.html">Current Affairs</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p><strong>Email:</strong> <a href="mailto:cuetbynta@yahoo.com">cuetbynta@yahoo.com</a></p>
+        <p><strong>WhatsApp Channel:</strong> <a href="https://whatsapp.com/channel/0029Va9z74P4tRs1l21nE62F" target="_blank" rel="noopener noreferrer">Join our official channel</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CUETbyNTA. All rights reserved.</span>
+      <span>For students. By students.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+(() => {
+  const API = 'https://script.google.com/macros/s/AKfycbwu7oY46KP-EpSOgXcOuDIXrWEqJ-WyGha3bgm0lTT6N9lCby49pw4mcWQnFezBoz-cOA/exec';
+  const REFRESH_MS = 15 * 60 * 1000;
+  const feed = document.getElementById('cuetCaFeed');
+  const filters = document.getElementById('cuetCaFilters');
+  const count = document.getElementById('cuetCaCount');
+  const updated = document.getElementById('cuetCaLastUpdated');
+  const nextRefresh = document.getElementById('cuetCaNextRefresh');
+  const heroCount = document.getElementById('cuetCaHeroCount');
+  let allArticles = [], activeCategory = 'All', nextTimer;
+
+  const esc = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const normaliseCategory = c => {
+    const x = String(c || 'National').trim();
+    const map = {'Science':'Science & Tech','Science and Technology':'Science & Tech','Science & Technology':'Science & Tech','Environment':'Environment','International':'International','Economy':'Economy','Sports':'Sports','Education':'Education','National':'National'};
+    return map[x] || x;
+  };
+  const dateKey = a => {
+    if (a.dateKey && /^\d{4}-\d{2}-\d{2}$/.test(a.dateKey) && !Number.isNaN(new Date(a.dateKey+'T00:00:00Z').getTime())) return a.dateKey;
+    if (a.date) { const d = new Date(a.date); if (!Number.isNaN(d.getTime())) return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(d); }
+    if (a.publishedISO) { const d = new Date(a.publishedISO); if (!Number.isNaN(d.getTime())) return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(d); }
+    return '';
+  };
+  const safeLink = value => {
+    if (!value) return '';
+    try {
+      const url = new URL(String(value || ''), window.location.origin);
+      return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : '';
+    } catch (error) {
+      return '';
+    }
+  };
+  const displayDate = key => new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',day:'2-digit',month:'long',year:'numeric'}).format(new Date(key+'T00:00:00+05:30')).toUpperCase();
+  const time = a => {
+    if (a.time) return a.time;
+    const published = new Date(a.publishedISO || '');
+    return !Number.isNaN(published.getTime())
+      ? new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit',hour12:true}).format(published)
+      : '';
+  };
+  const source = a => a.source || 'CUETbyNTA';
+
+  function showSkeleton(){ feed.innerHTML = '<div class="cuet-ca-list">' + Array.from({length:5},()=>'<div class="cuet-ca-skeleton"><div class="cuet-ca-skeleton-line"></div><div class="cuet-ca-skeleton-line short"></div></div>').join('') + '</div>'; }
+
+  function renderFilters(){
+    const cats = ['All', ...new Set(allArticles.map(a => normaliseCategory(a.category)).filter(Boolean))];
+    filters.innerHTML = cats.map(c => `<button type="button" class="cuet-ca-filter ${c===activeCategory?'is-active':''}" data-category="${esc(c)}" aria-pressed="${c===activeCategory}">${esc(c)}</button>`).join('');
+    filters.querySelectorAll('.cuet-ca-filter').forEach(b => b.addEventListener('click',()=>{activeCategory=b.dataset.category;renderFilters();render();}));
+  }
+
+  function render(){
+    const filtered = activeCategory==='All' ? allArticles : allArticles.filter(a=>normaliseCategory(a.category)===activeCategory);
+    count.innerHTML = `<strong>${filtered.length}</strong> ${filtered.length===1?'update':'updates'} shown`;
+    if(!filtered.length){ feed.innerHTML='<div class="cuet-ca-message"><strong>No updates here yet.</strong>Try another category or check back after the next refresh.</div>'; return; }
+    const groups = {};
+    filtered.forEach(a=>{ const k=dateKey(a); if(k) (groups[k] ||= []).push(a); });
+    const keys=Object.keys(groups).sort((a,b)=>b.localeCompare(a));
+    feed.innerHTML=keys.map((k,i)=>{
+      const items=groups[k].sort((a,b)=>new Date(b.publishedISO||b.date||0)-new Date(a.publishedISO||a.date||0));
+      return `<section class="cuet-ca-day"><div class="cuet-ca-day-head"><div class="cuet-ca-day-heading"><h2 class="cuet-ca-day-title">${displayDate(k)}</h2>${i===0?'<span class="cuet-ca-today">LATEST</span>':''}</div><div class="cuet-ca-day-meta">${items.length} ${items.length===1?'UPDATE':'UPDATES'}</div></div><div class="cuet-ca-list">${items.map(a=>{const cat=normaliseCategory(a.category); const link=safeLink(a.link||a.url); const title=esc(a.title||'Untitled update'); const titleMarkup=link?`<a href="${esc(link)}" target="_blank" rel="noopener noreferrer">${title}</a>`:title; const readMarkup=link?`<a class="cuet-ca-read" href="${esc(link)}" target="_blank" rel="noopener noreferrer">Read full news <span>→</span></a>`:''; return `<article class="cuet-ca-item"><div class="cuet-ca-category">${esc(cat)}</div><div><h3 class="cuet-ca-news-title">${titleMarkup}</h3><div class="cuet-ca-meta"><span>${esc(time(a))}</span><span>·</span><span>${esc(source(a))}</span></div></div>${readMarkup}</article>`;}).join('')}</div></section>`;
+    }).join('');
+    if (!keys.length) feed.innerHTML='<div class="cuet-ca-message"><strong>No updates are available yet.</strong>Please check back after the next feed update.</div>';
+  }
+
+  async function load(){
+    showSkeleton();
+    try{
+      if(API.includes('PASTE_YOUR')) throw new Error('Apps Script URL not configured yet.');
+      const res=await fetch(API+'?t='+Date.now(),{cache:'no-store'});
+      if(!res.ok) throw new Error('Unable to load current affairs.');
+      const data=await res.json();
+      if(!data.success) throw new Error(data.error||'API returned an error.');
+      allArticles=Array.isArray(data.articles)?data.articles:[];
+      allArticles=allArticles.map(a=>({...a,category:normaliseCategory(a.category)}));
+      heroCount.textContent=allArticles.length;
+      activeCategory='All'; renderFilters(); render();
+      updated.textContent='Last checked '+new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date());
+      clearInterval(nextTimer); let seconds=900; nextTimer=setInterval(()=>{seconds--; nextRefresh.textContent='Next refresh in '+Math.floor(seconds/60)+'m '+String(seconds%60).padStart(2,'0')+'s'; if(seconds<=0)clearInterval(nextTimer);},1000);
+    }catch(err){
+      count.innerHTML='<strong>Couldn’t load updates.</strong>';
+      feed.innerHTML=`<div class="cuet-ca-message"><strong>Current affairs are temporarily unavailable.</strong><span>${esc(err.message)}</span></div>`;
+      updated.textContent='Unable to check for updates';
+    }
+  }
+  load(); setInterval(load,REFRESH_MS);
+})();
+</script>
+</body>
+</html>
