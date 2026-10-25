@@ -1172,6 +1172,11 @@ section[id], footer[id]{ scroll-margin-top: 92px; }
   .brand-logo-img { height: 38px; max-width: min(48vw, 190px); object-fit: contain; object-position: left center; }
   .nav-cta { gap: 8px; }
   .nav-toggle { width: 44px; height: 44px; flex: 0 0 44px; }
+  .nav-toggle span {
+    top: 20px;
+    box-shadow: 0 -7px 0 var(--ink), 0 7px 0 var(--ink);
+  }
+  .nav-toggle span::before, .nav-toggle span::after { content: none; }
   .mobile-nav {
     height: 100vh;
     height: 100dvh;
