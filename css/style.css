@@ -1147,3 +1147,106 @@ section[id], footer[id]{ scroll-margin-top: 92px; }
 .ca-day-heading:first-child {
     margin-top: 10px;
 }
+
+/* MOBILE RESPONSIVE PASS — shared site-wide overrides */
+/* Comfortable gutters and shrinkable grid children prevent narrow-screen overflow. */
+@media (max-width: 980px) {
+  .wrap { padding-inline: 24px; }
+  .grid-3, .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .main-nav { gap: 18px; }
+  .main-nav a { font-size: 14px; }
+  .hero-inner, .page-banner-inner, .svc-block-head, .story-grid,
+  .newsletter-grid, .recruitment-details, .role-grid { min-width: 0; }
+  .story-grid > *, .grid-2 > *, .grid-3 > *, .why-grid > *,
+  .footer-grid > *, .newsletter-grid > *, .recruitment-details > *,
+  .role-grid > * { min-width: 0; }
+  iframe, video, table { max-width: 100%; }
+}
+
+@media (max-width: 760px) {
+  :root { --mobile-header-offset: 74px; }
+  html { scroll-padding-top: calc(var(--mobile-header-offset) + 12px); }
+  .wrap { padding-inline: 20px; }
+  .masthead .wrap { min-height: 68px; padding-top: 10px; padding-bottom: 10px; gap: 12px; }
+  .brand { min-width: 0; }
+  .brand-logo-img { height: 38px; max-width: min(48vw, 190px); object-fit: contain; object-position: left center; }
+  .nav-cta { gap: 8px; }
+  .nav-toggle { width: 44px; height: 44px; flex: 0 0 44px; }
+  .mobile-nav {
+    height: 100vh;
+    height: 100dvh;
+    padding: calc(20px + env(safe-area-inset-top)) 20px calc(20px + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .mobile-nav a, .mobile-nav button { min-height: 48px; }
+  .mobile-nav-close { min-width: 44px; min-height: 44px; }
+  .hero { padding-top: 42px; }
+  .hero h1 { font-size: clamp(2.35rem, 9.6vw, 3.8rem); line-height: 1.08; overflow-wrap: anywhere; }
+  .hero p, .page-banner p { max-width: 62ch; }
+  .hero-actions { flex-wrap: wrap; }
+  .hero-actions .btn { white-space: normal; }
+  .grid-3, .grid-2, .why-grid, .footer-grid, .process-list, .detail-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .section { padding-block: 52px; }
+  .section-head { margin-bottom: 30px; }
+  .svc-block { padding-block: 44px; }
+  .svc-card, .why-card, .detail-item, .role-card, .application-form,
+  .newsletter-card, .toolkit-note { min-width: 0; overflow-wrap: anywhere; }
+  .svc-card, .why-card, .detail-item { padding: 20px; }
+  .ticker { font-size: 16px; }
+  .ticker-track { gap: 18px; }
+  .sticker-row { gap: 10px; }
+  .page-banner { padding-block: 44px; }
+  .page-banner h1 { font-size: clamp(2.1rem, 8.5vw, 3.3rem); line-height: 1.12; overflow-wrap: anywhere; }
+  .cta-band { gap: 20px; }
+  .cta-band .btn { white-space: normal; }
+  .footer-bottom { gap: 14px; }
+  .social-row { flex-wrap: wrap; }
+  .pyq-filters { grid-template-columns: minmax(0, 1fr); }
+  .pyq-filters > * { min-width: 0; width: 100%; }
+  .cuet-ca-page .cuet-ca-toolbar { top: var(--mobile-header-offset, 74px); }
+  .recruitment-details { grid-template-columns: minmax(0, 1fr); }
+  .recruitment-page iframe, .application-form iframe { width: 100%; max-width: 100%; }
+  input, select, textarea { font-size: 16px; }
+  .bottom-glass { height: 76px; }
+  .back-to-top { bottom: 84px; }
+}
+
+@media (max-width: 520px) {
+  .wrap { padding-inline: 16px; }
+  .masthead .wrap { min-height: 62px; }
+  .brand-logo-img { height: 34px; max-width: min(52vw, 170px); }
+  .hero { padding-top: 34px; }
+  .hero h1 { font-size: clamp(2.15rem, 10.6vw, 3rem); }
+  .hero .tag, .tag { max-width: 100%; font-size: 11px; padding: 6px 12px; }
+  .hero-actions { display: grid; grid-template-columns: minmax(0, 1fr); width: 100%; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .sticker-row { justify-content: center; }
+  .sticker { width: min(92px, 26vw); height: min(92px, 26vw); }
+  .sticker-label { font-size: 9px; }
+  .section { padding-block: 44px; }
+  .section-head { gap: 12px; margin-bottom: 26px; }
+  .section-head h2 { font-size: clamp(1.75rem, 8vw, 2.4rem); line-height: 1.12; }
+  .page-banner { padding-block: 36px; }
+  .page-banner h1 { font-size: clamp(1.95rem, 9vw, 2.7rem); }
+  .svc-card, .why-card, .detail-item, .role-card, .application-form,
+  .newsletter-card, .toolkit-note { padding: 17px; }
+  .cta-band .btn { width: 100%; justify-content: center; }
+  .newsletter-form { grid-template-columns: minmax(0, 1fr); }
+  .newsletter-form button { width: 100%; }
+  .cuet-ca-page .cuet-ca-toolbar { padding-inline: 12px; }
+  .cuet-ca-page .cuet-ca-toolbar button,
+  .cuet-ca-page .cuet-ca-toolbar select { min-height: 44px; }
+  .bottom-glass { height: 64px; }
+}
+
+@media (max-width: 360px) {
+  .wrap { padding-inline: 14px; }
+  .masthead .wrap { gap: 8px; }
+  .brand-logo-img { max-width: 48vw; }
+  .sticker-row { gap: 6px; }
+  .sticker { width: 25vw; height: 25vw; }
+  .sticker-label { font-size: 8px; }
+}
