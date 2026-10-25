@@ -751,7 +751,7 @@ section[id], footer[id]{ scroll-margin-top: 92px; }
    ====================================================== */
 @media (max-width: 980px){
   .story-grid{ grid-template-columns: 1fr; }
-  .story-photo{ aspect-ratio: 16/9; }
+  .story-photo{ aspect-ratio: 1122 / 1402; }
   .grid-3, .why-grid{ grid-template-columns: repeat(2, 1fr); }
   .footer-grid{ grid-template-columns: repeat(2, 1fr); }
   .process-list{ grid-template-columns: repeat(2, 1fr); }
